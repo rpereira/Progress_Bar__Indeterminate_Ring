@@ -22,6 +22,7 @@ function imageLoader(s, fun)
     genImage.onerror = new Function('alert(\'Unable to load the image :(\')');
     genImage.src     = s;
 }
+```
 
 Start the animation
 
