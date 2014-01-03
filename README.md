@@ -11,6 +11,7 @@ Include the canvas_spinner.js file on your HTML page:
 <script type="text/javascript" src="js/canvas_spinner.js"></script>
 ```
 
+
 On your main .js file, load your image:
 ```javascript
 function imageLoader(s, fun)
@@ -27,6 +28,7 @@ function imageLoader(s, fun)
     genImage.src     = s;
 }
 ```
+
 
 And then start the animation:
 ```javascript
