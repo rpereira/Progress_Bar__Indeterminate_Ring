@@ -6,6 +6,7 @@ HTML5 Canvas progress bar like Windows Metro.
 
 ###Usage
 
+```javascript
 function startAnimation() 
 {
 FPS = Math.round(100 / SPINNER_SPEED);
@@ -19,11 +20,8 @@ SPINNER_IMG_TIMEOUT = setTimeout(fun, 0);
 };
 initCanvas();
 }
+´´´
 
-/**
-* Pre-loads the sprites image.
-* @param s      The image source
-*/
 function imageLoader(s, fun) {
 clearTimeout(SPINNER_IMG_TIMEOUT);
 SPINNER_IMG_TIMEOUT = 0;
