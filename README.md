@@ -3,6 +3,9 @@ Indeterminate Ring
 
 Canvas progress bar like Windows Metro.
 
+Preview:
+![alt text](https://raw.github.com/ruiafonsopereira/Progress-Bar--Indeterminate-Ring/master/preview.gif "Preview")
+
 
 ###Usage
 
