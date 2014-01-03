@@ -12,7 +12,7 @@ Include the canvas_spinner.js file on your HTML page:
 ```
 
 
-On your main .js file, load your image:
+On your main .js file, load the image:
 ```javascript
 function imageLoader(s, fun)
 {
