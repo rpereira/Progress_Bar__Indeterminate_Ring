@@ -1,4 +1,3 @@
-```javascript
 // Canvas: spinner constants
 var SPINNER_IMG_SRC = 'your_scource.gif';
 var SPINNER_IMG_TIMEOUT  = false;
@@ -379,4 +378,3 @@ function initCanvas()
 {
 	new GameObjectManager().startupGameObjectManager();
 }
-```
