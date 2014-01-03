@@ -6,6 +6,11 @@ HTML5 Canvas progress bar like Windows Metro.
 
 ###Usage
 
+Load the canvas_spinner to your HTML page
+```html
+<script type="text/javascript" src="js/canvas_spinner.js"></script>
+´´´
+
 ```javascript
 function startAnimation() 
 {
