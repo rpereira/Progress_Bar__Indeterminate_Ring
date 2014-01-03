@@ -1,4 +1,4 @@
-Progress-Bar--Indeterminate-Ring
+Progress Bar: Indeterminate Ring (Windows Metro Style)
 ================================
 
-Windows Metro Style
+
