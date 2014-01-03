@@ -6,8 +6,12 @@ HTML5 Canvas progress bar like Windows Metro.
 
 ###Usage
 
-Load your image
+Load the file to your HTML page
+```html
+<script type="text/javascript" src="js/canvas_spinner.js"></script>
+```
 
+Load your image
 ```javascript
 function imageLoader(s, fun)
 {
@@ -25,7 +29,6 @@ function imageLoader(s, fun)
 ```
 
 Start the animation
-
 ```javascript
 function startAnimation() 
 {
