@@ -57,7 +57,7 @@ function VisualGameObject()
 	 * @param yScroll    The global scrolling value of the y axis
 	 */
 	this.draw = function (dt, context, xScroll, yScroll) 
-    {
+	{
 		context.drawImage(this.image, this.x - xScroll, this.y - yScroll);
 	};
 
@@ -68,8 +68,8 @@ function VisualGameObject()
 	 * @param y        The position on the Y axis
 	 * @param z        The depth
 	 */
-	this.startupVisualGameObject = function (image, x, y, z) 
-    {
+	this.startupVisualGameObject = function (image, x, y, z)
+	{
 		this.startupGameObject(x, y, z);
 		this.image = image;
         
@@ -78,7 +78,7 @@ function VisualGameObject()
 
 	// Clean up this object
 	this.shutdownVisualGameObject = function () 
-    {
+	{
 		this.shutdownGameObject();
 	};
 }
@@ -101,7 +101,7 @@ function RepeatingGameObject()
      * @return    A reference to the initialised object
      */
 	this.startupRepeatingGameObject = function (image, x, y, z, width, height, scrollFactor)
-    {
+	{
 		this.startupVisualGameObject(image, x, y, z);
 		this.width        = width;
 		this.height       = height;
@@ -112,7 +112,7 @@ function RepeatingGameObject()
 	
 	// Clean this object
 	this.shutdownstartupRepeatingGameObject = function () 
-    {
+	{
 		this.shutdownVisualGameObject();
 	};
 
@@ -124,13 +124,13 @@ function RepeatingGameObject()
 	 * @param yScroll    The global scrolling value of the y axis  
      */
 	this.draw = function (dt, canvas, xScroll, yScroll) 
-    {
+	{
 		var areaDrawn = [0, 0];
 
 		for (var y = 0; y < this.height; y += areaDrawn[1]) 
-        {
+		{
 			for (var x = 0; x < this.width; x += areaDrawn[0]) 
-            {
+			{
 				// the top left corner to start drawing the next tile from
 				var newPosition = [this.x + x, this.y + y];
 				
@@ -153,7 +153,7 @@ function RepeatingGameObject()
 	};
 
 	this.drawRepeat = function (canvas, newPosition, newFillArea, newScrollPosition) 
-    {
+	{
 		// start drawing on the top left corner
 		var xOffset = Math.abs(newScrollPosition[0]) % this.image.width;
 		var yOffset = Math.abs(newScrollPosition[1]) % this.image.height;
@@ -191,14 +191,12 @@ function AnimatedGameObject()
      * @param fps           The frames per second to animate this object at
      */
 	this.startupAnimatedGameObject = function (image, x, y, z, frameCount, fps) 
-    {
-		if (frameCount <= 0) {
+	{
+		if (frameCount <= 0)
 			throw "framecount can't be <= 0";
-		}
 		
-		if (fps <= 0) {
+		if (fps <= 0)
 			throw "FPS can't be <= 0";
-		}
 
 		this.startupVisualGameObject(image, x, y, z);
 		this.currentFrame       = 0;
@@ -216,7 +214,7 @@ function AnimatedGameObject()
 	 * @param yScroll    The global scrolling value of the y axis
      */
 	this.draw = function (dt, context, xScroll, yScroll) 
-    {
+	{
 		var sourceX = this.frameWidth * this.currentFrame;
 		context.drawImage(this.image, sourceX, 0, this.frameWidth, this.image.height, this.x - xScroll,
 						  this.y - yScroll, this.frameWidth, this.image.height);
@@ -224,7 +222,7 @@ function AnimatedGameObject()
 		this.timeSinceLastFrame -= dt;
         
 		if (this.timeSinceLastFrame <= 0) 
-        {
+		{
 			this.timeSinceLastFrame = this.timeBetweenFrames;
 			++this.currentFrame;
 			this.currentFrame %= this.frameCount;
@@ -254,9 +252,9 @@ Array.prototype.remove = function (from, to)
 Array.prototype.removeObject = function (object) 
 {
 	for (var i = 0; i < this.length; ++i) 
-    {
+	{
 		if (this[i] === object) 
-        {
+		{
 			this.remove(i);
 			break;
 		}
@@ -266,7 +264,7 @@ Array.prototype.removeObject = function (object)
 function ApplicationManager() 
 {
 	this.startupApplicationManager = function () 
-    {
+	{
 		this.runner = new AnimatedGameObject().startupAnimatedGameObject(g_run, 0, 0, 1,
                                                                          SPINNER_TOTAL_FRAMES, 
                                                                          FPS);
@@ -280,12 +278,12 @@ function ApplicationManager()
  */
 function GameObjectManager() 
 {
-	this.gameObjects 		 = new Array();
-	this.lastFrame 			 = new Date().getTime();
-	this.xScroll 			 = 0;
-	this.yScroll 		     = 0;
+	this.gameObjects	 = new Array();
+	this.lastFrame		 = new Date().getTime();
+	this.xScroll		 = 0;
+	this.yScroll		 = 0;
 	this.applicationManager  = null;
-	this.canvas 			 = null;
+	this.canvas 		 = null;
 	this.context2D           = null;
 	this.backBuffer          = null;
 	this.backBufferContext2D = null;
@@ -295,13 +293,13 @@ function GameObjectManager()
      * @return this      A reference to the initialised object
      */
 	this.startupGameObjectManager = function () 
-    {
+	{
 		// global pointer references this
 		g_GameObjectManager = this;
 
 		// references to the canvas elements
-		this.canvas				 = document.getElementById('canvas');
-		this.context2D 			 = this.canvas.getContext('2d');
+		this.canvas		 = document.getElementById('canvas');
+		this.context2D 		 = this.canvas.getContext('2d');
 		this.backBuffer          = document.createElement('canvas');
 		this.backBuffer.width    = this.canvas.width;
 		this.backBuffer.height   = this.canvas.height;
@@ -321,7 +319,7 @@ function GameObjectManager()
 	 * The render loop.
 	 */
 	this.draw = function () 
-    {
+	{
 		// Compute the time since the last frame
 		var thisFrame = new Date().getTime();
 		var dt = (thisFrame - this.lastFrame) / 1000;
@@ -333,17 +331,19 @@ function GameObjectManager()
 		this.context2D.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
 		// Update all the game objects
-		for (x in this.gameObjects) {
-			if (this.gameObjects[x].update) {
+		for (x in this.gameObjects)
+		{
+			if (this.gameObjects[x].update)
+			{
 				this.gameObjects[x].update(dt, this.backBufferContext2D, this.xScroll, this.yScroll);
 			}
 		}
 
 		// Draw the game objects
 		for (x in this.gameObjects) 
-        {
+		{
 			if (this.gameObjects[x].draw) 
-            {
+			{
 				this.gameObjects[x].draw(dt, this.backBufferContext2D, this.xScroll, this.yScroll);
 			}
 		}
@@ -357,7 +357,7 @@ function GameObjectManager()
      * @param gameObject    The object to add
      */
 	this.addGameObject = function (gameObject) 
-    {
+	{
 		this.gameObjects.push(gameObject);
 		this.gameObjects.sort(function (a, b) {
 			return a.zOrder - b.zOrder;
@@ -369,7 +369,7 @@ function GameObjectManager()
 	 * @param gameObject    The object to remove
 	 */
 	this.removeGameObject = function (gameObject) 
-    {
+	{
 		this.gameObjects.removeObject(gameObject);
 	};
 }
