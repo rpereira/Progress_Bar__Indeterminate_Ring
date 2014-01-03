@@ -6,12 +6,24 @@ HTML5 Canvas progress bar like Windows Metro.
 
 ###Usage
 
+Load your image
+
 ```javascript
-var AES = require("crypto-js/aes");
-var SHA256 = require("crypto-js/sha256");
-...
-console.log(SHA256("Message"));
-```
+function imageLoader(s, fun)
+{
+    clearTimeout(SPINNER_IMG_TIMEOUT);
+    SPINNER_IMG_TIMEOUT = 0;
+    genImage = new Image();
+    genImage.onload = function ()
+    {
+        SPINNER_IMG_TIMEOUT = setTimeout(fun, 0);
+    };
+    
+    genImage.onerror = new Function('alert(\'Unable to load the image :(\')');
+    genImage.src     = s;
+}
+
+Start the animation
 
 ```javascript
 function startAnimation() 
@@ -29,17 +41,4 @@ function startAnimation()
 
     initCanvas();
 }
-
-function imageLoader(s, fun)
-{
-    clearTimeout(SPINNER_IMG_TIMEOUT);
-    SPINNER_IMG_TIMEOUT = 0;
-    genImage = new Image();
-    genImage.onload = function ()
-    {
-        SPINNER_IMG_TIMEOUT = setTimeout(fun, 0);
-    };
-    
-    genImage.onerror = new Function('alert(\'Unable to load the image :(\')');
-    genImage.src     = s;
-}
+```
