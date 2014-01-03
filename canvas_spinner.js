@@ -1,5 +1,5 @@
 // Canvas: spinner constants
-var SPINNER_IMG_SRC = 'your_scource.gif';
+var SPINNER_IMG_SRC      = 'your_scource.gif';
 var SPINNER_IMG_TIMEOUT  = false;
 var SPINNER_SPEED        = 7;
 var SPINNER_WIDTH        = 55;
