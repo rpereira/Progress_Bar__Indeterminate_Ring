@@ -24,7 +24,7 @@ function GameObject()
 	 * @param z      The z order of the element (elements in the background have a lower z value)
 	 */
 	this.startupGameObject = function (x, y, z)
-    {
+    	{
 		this.zOrder = z;
 		this.x      = x;
 		this.y      = y;
