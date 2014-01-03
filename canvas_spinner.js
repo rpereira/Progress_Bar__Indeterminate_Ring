@@ -35,7 +35,7 @@ function GameObject()
 
 	// Cleans up the object and removes it from the list of objects held by the GameObjectManager.
 	this.shutdownGameObject = function ()
-    {
+    	{
 		g_GameObjectManager.removeGameObject(this);
 	};
 }
