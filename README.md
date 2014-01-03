@@ -1,17 +1,17 @@
 Indeterminate Ring
 ================================
 
-HTML5 Canvas progress bar like Windows Metro.
+Canvas progress bar like Windows Metro.
 
 
 ###Usage
 
-Load the file to your HTML page:
+Include the canvas_spinner.js file on your HTML page:
 ```html
 <script type="text/javascript" src="js/canvas_spinner.js"></script>
 ```
 
-Load your image:
+On your main .js file, load your image:
 ```javascript
 function imageLoader(s, fun)
 {
@@ -28,7 +28,7 @@ function imageLoader(s, fun)
 }
 ```
 
-Start the animation:
+And then start the animation:
 ```javascript
 function startAnimation() 
 {
