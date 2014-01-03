@@ -22,10 +22,7 @@ function startAnimation()
 
     initCanvas();
 }
-´´´
-###dsfasfasf
 
-```javascript
 function imageLoader(s, fun)
 {
     clearTimeout(SPINNER_IMG_TIMEOUT);
