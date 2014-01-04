@@ -12,10 +12,9 @@ Preview:
 1. Add the sprites.gif image to your project
 2. Change it's location on the first line of canvas_spinner.js file
 3. Include the canvas_spinner.js file on your HTML page:
-```html
+```
 <script type="text/javascript" src="js/canvas_spinner.js"></script>
 ```
-
 
 
 ###Usage
